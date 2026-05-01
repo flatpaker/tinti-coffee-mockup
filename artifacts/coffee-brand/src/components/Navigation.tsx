@@ -1,16 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { useLang } from '@/context/LanguageContext';
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { lang, t, toggle } = useLang();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const navLinks = [
+    { label: t.nav.origin, href: '#origin' },
+    { label: t.nav.collection, href: '#collection' },
+    { label: t.nav.brewing, href: '#brewing' },
+    { label: t.nav.values, href: '#values' },
+  ];
 
   return (
     <motion.header
@@ -36,30 +43,38 @@ export function Navigation() {
         </a>
 
         <nav className="hidden md:flex items-center gap-8 text-white/90">
-          <a href="#origin" className="text-sm font-medium tracking-wide hover:text-secondary transition-colors relative group">
-            Origin
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
-          </a>
-          <a href="#collection" className="text-sm font-medium tracking-wide hover:text-secondary transition-colors relative group">
-            Collection
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
-          </a>
-          <a href="#brewing" className="text-sm font-medium tracking-wide hover:text-secondary transition-colors relative group">
-            Brewing
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
-          </a>
-          <a href="#values" className="text-sm font-medium tracking-wide hover:text-secondary transition-colors relative group">
-            Values
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
-          </a>
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-sm font-medium tracking-wide hover:text-secondary transition-colors relative group"
+            >
+              {link.label}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full" />
+            </a>
+          ))}
         </nav>
 
-        <button 
-          className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2.5 rounded-full font-sans text-sm font-semibold tracking-wide transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5 z-10"
-          data-testid="button-order-nav"
-        >
-          Order Now
-        </button>
+        <div className="flex items-center gap-3 z-10">
+          <button
+            onClick={toggle}
+            data-testid="button-lang-toggle"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-xs font-typewriter uppercase tracking-widest transition-all hover:bg-white/10"
+            style={{ borderColor: 'rgba(196,154,58,0.5)', color: '#C49A3A' }}
+            aria-label="Toggle language"
+          >
+            <span className={lang === 'es' ? 'opacity-100' : 'opacity-40'}>ES</span>
+            <span style={{ color: 'rgba(196,154,58,0.3)' }}>|</span>
+            <span className={lang === 'en' ? 'opacity-100' : 'opacity-40'}>EN</span>
+          </button>
+
+          <button
+            className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2.5 rounded-full font-sans text-sm font-semibold tracking-wide transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
+            data-testid="button-order-nav"
+          >
+            {t.nav.order}
+          </button>
+        </div>
       </div>
     </motion.header>
   );

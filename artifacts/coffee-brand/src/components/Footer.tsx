@@ -1,5 +1,11 @@
+import { useLang } from '@/context/LanguageContext';
+
+const navHrefs = ['#origin', '#collection', '#brewing', '#values', '#contact'];
+
 export function Footer() {
   const year = new Date().getFullYear();
+  const { t } = useLang();
+  const f = t.footer;
 
   return (
     <footer className="py-16 relative z-10" style={{ backgroundColor: '#1a2e22' }}>
@@ -23,20 +29,20 @@ export function Footer() {
               Pitalito, Huila — Colombia
             </p>
             <p className="text-sm font-light leading-relaxed" style={{ color: '#F5E9D7', opacity: 0.5 }}>
-              Single-origin specialty coffee grown at the intersection of tradition, altitude, and care.
+              {f.tagline}
             </p>
           </div>
 
           <div>
-            <span className="font-typewriter text-xs uppercase tracking-widest block mb-5" style={{ color: '#C49A3A' }}>Navigation</span>
+            <span className="font-typewriter text-xs uppercase tracking-widest block mb-5" style={{ color: '#C49A3A' }}>{f.navLabel}</span>
             <nav className="space-y-3">
-              {['Origin', 'Collection', 'Brewing', 'Values', 'Contact'].map((link) => (
+              {f.navLinks.map((link, i) => (
                 <a
-                  key={link}
-                  href={`#${link.toLowerCase()}`}
-                  className="block text-sm font-light transition-colors hover:opacity-100"
+                  key={i}
+                  href={navHrefs[i]}
+                  className="block text-sm font-light transition-opacity hover:opacity-100"
                   style={{ color: '#F5E9D7', opacity: 0.5 }}
-                  data-testid={`footer-link-${link.toLowerCase()}`}
+                  data-testid={`footer-link-${i}`}
                 >
                   {link}
                 </a>
@@ -45,7 +51,7 @@ export function Footer() {
           </div>
 
           <div>
-            <span className="font-typewriter text-xs uppercase tracking-widest block mb-5" style={{ color: '#C49A3A' }}>Connect</span>
+            <span className="font-typewriter text-xs uppercase tracking-widest block mb-5" style={{ color: '#C49A3A' }}>{f.connectLabel}</span>
             <div className="space-y-3">
               <a href="mailto:hola@cafehuila.co" className="flex items-center gap-3 text-sm font-light transition-opacity hover:opacity-100" style={{ color: '#F5E9D7', opacity: 0.5 }}>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
@@ -75,10 +81,10 @@ export function Footer() {
 
         <div className="border-t flex flex-col md:flex-row justify-between items-center pt-8 gap-4" style={{ borderColor: 'rgba(245,233,215,0.1)' }}>
           <p className="font-typewriter text-xs" style={{ color: '#F5E9D7', opacity: 0.3 }}>
-            &copy; {year} Café Huila. All rights reserved.
+            &copy; {year} Café Huila. {f.copyright}
           </p>
           <p className="font-typewriter text-xs" style={{ color: '#F5E9D7', opacity: 0.3 }}>
-            Grown with love at 1,700m above sea level.
+            {f.grown}
           </p>
         </div>
       </div>

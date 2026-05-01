@@ -1,22 +1,25 @@
-import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useLang } from '@/context/LanguageContext';
 
 export function Hero() {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 1000], [0, 400]);
   const opacity = useTransform(scrollY, [0, 500], [1, 0]);
+  const { t } = useLang();
+
+  const [line1, line2] = t.hero.headline.split('\n');
 
   return (
     <section className="relative h-[100dvh] w-full overflow-hidden bg-primary flex items-center justify-center">
-      <motion.div 
+      <motion.div
         className="absolute inset-0 z-0"
         style={{ y, opacity }}
       >
         <div className="absolute inset-0 bg-primary/40 z-10 mix-blend-multiply" />
         <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent z-10" />
-        <img 
-          src="/hero-bg.png" 
-          alt="Misty Andean coffee farm at dawn in Huila Colombia" 
+        <img
+          src="/hero-bg.png"
+          alt="Misty Andean coffee farm at dawn in Huila Colombia"
           className="w-full h-full object-cover object-center"
         />
       </motion.div>
@@ -49,22 +52,24 @@ export function Hero() {
           </div>
         </motion.div>
 
-        <motion.h1 
+        <motion.h1
           className="text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-[0.9]"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
+          key={t.hero.headline}
         >
-          NACIDO EN LAS<br/>NUBES DE HUILA
+          {line1}<br />{line2}
         </motion.h1>
 
-        <motion.p 
+        <motion.p
           className="text-lg md:text-xl text-white/80 max-w-2xl font-light mb-10"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
+          key={t.hero.sub}
         >
-          Hand-picked in the misty Andean highlands. A premium specialty coffee carrying the weight of tradition, elevation, and terroir.
+          {t.hero.sub}
         </motion.p>
 
         <motion.div
@@ -72,25 +77,25 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <button 
+          <button
             className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-10 py-4 rounded-full font-sans text-lg font-semibold tracking-wide transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
             data-testid="button-hero-cta"
           >
-            Discover the Origin
+            {t.hero.cta}
           </button>
         </motion.div>
       </div>
-      
-      <motion.div 
+
+      <motion.div
         className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-white/60"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.5 }}
       >
-        <span className="font-typewriter text-xs uppercase tracking-widest">Scroll</span>
-        <motion.div 
+        <span className="font-typewriter text-xs uppercase tracking-widest">{t.hero.scroll}</span>
+        <motion.div
           animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+          transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M12 5v14M19 12l-7 7-7-7" />

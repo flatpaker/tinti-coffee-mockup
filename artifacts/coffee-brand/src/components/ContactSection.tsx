@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useLang } from '@/context/LanguageContext';
 
 export function ContactSection() {
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const { t } = useLang();
+  const c = t.contact;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -21,11 +24,9 @@ export function ContactSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <span className="font-typewriter text-sm uppercase tracking-widest mb-4 block" style={{ color: '#C49A3A' }}>Get In Touch</span>
-            <h2 className="text-4xl md:text-5xl mb-8" style={{ color: '#2F4F3A' }}>Let's Talk Coffee</h2>
-            <p className="text-lg font-light mb-12" style={{ color: '#2F4F3A', opacity: 0.7, lineHeight: 1.8 }}>
-              Whether you're a cafe owner, a curious home brewer, or just someone who knows good coffee — we'd love to hear from you.
-            </p>
+            <span className="font-typewriter text-sm uppercase tracking-widest mb-4 block" style={{ color: '#C49A3A' }}>{c.eyebrow}</span>
+            <h2 className="text-4xl md:text-5xl mb-8" style={{ color: '#2F4F3A' }}>{c.heading}</h2>
+            <p className="text-lg font-light mb-12" style={{ color: '#2F4F3A', opacity: 0.7, lineHeight: 1.8 }}>{c.sub}</p>
 
             <div className="space-y-8">
               <div className="flex items-start gap-5">
@@ -36,9 +37,9 @@ export function ContactSection() {
                   </svg>
                 </div>
                 <div>
-                  <span className="font-typewriter text-xs uppercase tracking-widest block mb-1" style={{ color: '#C49A3A' }}>Location</span>
+                  <span className="font-typewriter text-xs uppercase tracking-widest block mb-1" style={{ color: '#C49A3A' }}>{c.locationLabel}</span>
                   <p className="font-medium" style={{ color: '#2F4F3A' }}>Pitalito, Huila</p>
-                  <p className="text-sm font-light" style={{ color: '#2F4F3A', opacity: 0.6 }}>Colombia, South America</p>
+                  <p className="text-sm font-light" style={{ color: '#2F4F3A', opacity: 0.6 }}>{c.locationSub}</p>
                 </div>
               </div>
 
@@ -50,9 +51,9 @@ export function ContactSection() {
                   </svg>
                 </div>
                 <div>
-                  <span className="font-typewriter text-xs uppercase tracking-widest block mb-1" style={{ color: '#C49A3A' }}>Email</span>
+                  <span className="font-typewriter text-xs uppercase tracking-widest block mb-1" style={{ color: '#C49A3A' }}>{c.emailLabel}</span>
                   <p className="font-medium" style={{ color: '#2F4F3A' }}>hola@cafehuila.co</p>
-                  <p className="text-sm font-light" style={{ color: '#2F4F3A', opacity: 0.6 }}>We reply within 24 hours</p>
+                  <p className="text-sm font-light" style={{ color: '#2F4F3A', opacity: 0.6 }}>{c.emailSub}</p>
                 </div>
               </div>
 
@@ -65,23 +66,21 @@ export function ContactSection() {
                   </svg>
                 </div>
                 <div>
-                  <span className="font-typewriter text-xs uppercase tracking-widest block mb-1" style={{ color: '#C49A3A' }}>Instagram</span>
+                  <span className="font-typewriter text-xs uppercase tracking-widest block mb-1" style={{ color: '#C49A3A' }}>{c.igLabel}</span>
                   <p className="font-medium" style={{ color: '#2F4F3A' }}>@cafehuila.co</p>
-                  <p className="text-sm font-light" style={{ color: '#2F4F3A', opacity: 0.6 }}>Behind the scenes from the farm</p>
+                  <p className="text-sm font-light" style={{ color: '#2F4F3A', opacity: 0.6 }}>{c.igSub}</p>
                 </div>
               </div>
             </div>
 
             <div className="mt-12 pt-10 border-t" style={{ borderColor: 'rgba(47,79,58,0.15)' }}>
-              <div className="inline-block">
-                <svg viewBox="0 0 300 60" width="240" height="48" fill="none" className="opacity-30">
-                  <path d="M10 30 Q30 10 50 30 Q70 50 90 30 Q110 10 130 30 Q150 50 170 30 Q190 10 210 30 Q230 50 250 30 Q270 10 290 30" stroke="#2F4F3A" strokeWidth="1.5" strokeLinecap="round"/>
-                  <circle cx="50" cy="30" r="3" fill="#2F4F3A"/>
-                  <circle cx="130" cy="30" r="3" fill="#2F4F3A"/>
-                  <circle cx="210" cy="30" r="3" fill="#2F4F3A"/>
-                  <circle cx="290" cy="30" r="3" fill="#2F4F3A"/>
-                </svg>
-              </div>
+              <svg viewBox="0 0 300 60" width="240" height="48" fill="none" className="opacity-30">
+                <path d="M10 30 Q30 10 50 30 Q70 50 90 30 Q110 10 130 30 Q150 50 170 30 Q190 10 210 30 Q230 50 250 30 Q270 10 290 30" stroke="#2F4F3A" strokeWidth="1.5" strokeLinecap="round"/>
+                <circle cx="50" cy="30" r="3" fill="#2F4F3A"/>
+                <circle cx="130" cy="30" r="3" fill="#2F4F3A"/>
+                <circle cx="210" cy="30" r="3" fill="#2F4F3A"/>
+                <circle cx="290" cy="30" r="3" fill="#2F4F3A"/>
+              </svg>
             </div>
           </motion.div>
 
@@ -98,13 +97,13 @@ export function ContactSection() {
                     <polyline points="20 6 9 17 4 12"/>
                   </svg>
                 </div>
-                <h3 className="text-2xl text-white mb-3">Message Received</h3>
-                <p className="text-white/60 font-light font-typewriter">We'll be in touch within 24 hours.</p>
+                <h3 className="text-2xl text-white mb-3">{c.successHeading}</h3>
+                <p className="text-white/60 font-light font-typewriter">{c.successSub}</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6" data-testid="form-contact">
                 <div>
-                  <label className="font-typewriter text-xs uppercase tracking-widest block mb-2" style={{ color: '#2F4F3A', opacity: 0.6 }}>Name</label>
+                  <label className="font-typewriter text-xs uppercase tracking-widest block mb-2" style={{ color: '#2F4F3A', opacity: 0.6 }}>{c.nameLabel}</label>
                   <input
                     type="text"
                     required
@@ -112,13 +111,13 @@ export function ContactSection() {
                     onChange={(e) => setFormState(s => ({ ...s, name: e.target.value }))}
                     className="w-full px-4 py-3 rounded-xl border bg-white/60 focus:outline-none focus:ring-1 transition-all text-sm font-light"
                     style={{ borderColor: 'rgba(47,79,58,0.25)', color: '#2F4F3A' }}
-                    placeholder="Your name"
+                    placeholder={c.namePlaceholder}
                     data-testid="input-name"
                   />
                 </div>
 
                 <div>
-                  <label className="font-typewriter text-xs uppercase tracking-widest block mb-2" style={{ color: '#2F4F3A', opacity: 0.6 }}>Email</label>
+                  <label className="font-typewriter text-xs uppercase tracking-widest block mb-2" style={{ color: '#2F4F3A', opacity: 0.6 }}>{c.emailFieldLabel}</label>
                   <input
                     type="email"
                     required
@@ -126,13 +125,13 @@ export function ContactSection() {
                     onChange={(e) => setFormState(s => ({ ...s, email: e.target.value }))}
                     className="w-full px-4 py-3 rounded-xl border bg-white/60 focus:outline-none focus:ring-1 transition-all text-sm font-light"
                     style={{ borderColor: 'rgba(47,79,58,0.25)', color: '#2F4F3A' }}
-                    placeholder="you@example.com"
+                    placeholder={c.emailPlaceholder}
                     data-testid="input-email"
                   />
                 </div>
 
                 <div>
-                  <label className="font-typewriter text-xs uppercase tracking-widest block mb-2" style={{ color: '#2F4F3A', opacity: 0.6 }}>Message</label>
+                  <label className="font-typewriter text-xs uppercase tracking-widest block mb-2" style={{ color: '#2F4F3A', opacity: 0.6 }}>{c.messageLabel}</label>
                   <textarea
                     required
                     rows={5}
@@ -140,7 +139,7 @@ export function ContactSection() {
                     onChange={(e) => setFormState(s => ({ ...s, message: e.target.value }))}
                     className="w-full px-4 py-3 rounded-xl border bg-white/60 focus:outline-none focus:ring-1 transition-all text-sm font-light resize-none"
                     style={{ borderColor: 'rgba(47,79,58,0.25)', color: '#2F4F3A' }}
-                    placeholder="Tell us what you're looking for..."
+                    placeholder={c.messagePlaceholder}
                     data-testid="textarea-message"
                   />
                 </div>
@@ -151,7 +150,7 @@ export function ContactSection() {
                   style={{ backgroundColor: '#C49A3A', color: '#FAFAF8' }}
                   data-testid="button-submit-contact"
                 >
-                  Send Message
+                  {c.submit}
                 </button>
               </form>
             )}

@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { LanguageProvider } from "@/context/LanguageContext";
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { OriginStory } from "@/components/OriginStory";
@@ -16,18 +17,20 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <div className="relative">
-          <Navigation />
-          <main>
-            <Hero />
-            <OriginStory />
-            <ProductShowcase />
-            <BrewingGuide />
-            <ProcessValues />
-            <ContactSection />
-          </main>
-          <Footer />
-        </div>
+        <LanguageProvider>
+          <div className="relative">
+            <Navigation />
+            <main>
+              <Hero />
+              <OriginStory />
+              <ProductShowcase />
+              <BrewingGuide />
+              <ProcessValues />
+              <ContactSection />
+            </main>
+            <Footer />
+          </div>
+        </LanguageProvider>
         <Toaster />
       </TooltipProvider>
     </QueryClientProvider>
