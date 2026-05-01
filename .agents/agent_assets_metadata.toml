@@ -1,5 +1,4 @@
 uploads = []
-outputs = []
 
 [[generated]]
 id = "Re7314fyKcsB7oQwQpj9o"
@@ -30,3 +29,9 @@ id = "YUBgyiKJHoit3ecxNlA5M"
 uri = "file://artifacts/coffee-brand/public/bag-4.png"
 type = "image"
 title = "Product bag 4"
+
+[[outputs]]
+id = "fp54CQMk6rCEgFU2-Q0pf"
+uri = "file://cafe-huila.tar.gz"
+type = "unspecified"
+title = "Café Huila — Proyecto Standalone (tar.gz)"
