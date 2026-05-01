@@ -1,0 +1,32 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "Re7314fyKcsB7oQwQpj9o"
+uri = "file://artifacts/coffee-brand/public/hero-bg.png"
+type = "image"
+title = "Hero background coffee farm"
+
+[[generated]]
+id = "XoeU6Fbv0A5lco5pqRqPn"
+uri = "file://artifacts/coffee-brand/public/bag-1.png"
+type = "image"
+title = "Product bag 1"
+
+[[generated]]
+id = "23VxksDV1wkbgT72kBf_a"
+uri = "file://artifacts/coffee-brand/public/bag-2.png"
+type = "image"
+title = "Product bag 2"
+
+[[generated]]
+id = "vtx_33UNOVXWMM4czEhT6"
+uri = "file://artifacts/coffee-brand/public/bag-3.png"
+type = "image"
+title = "Product bag 3"
+
+[[generated]]
+id = "YUBgyiKJHoit3ecxNlA5M"
+uri = "file://artifacts/coffee-brand/public/bag-4.png"
+type = "image"
+title = "Product bag 4"
