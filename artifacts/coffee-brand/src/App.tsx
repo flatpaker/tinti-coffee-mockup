@@ -10,10 +10,13 @@ import { BrewingGuide } from "@/components/BrewingGuide";
 import { ProcessValues } from "@/components/ProcessValues";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
+import { useTintiAnimations } from "@/hooks/useTintiAnimations";
 
 const queryClient = new QueryClient();
 
 function App() {
+  useTintiAnimations();
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>

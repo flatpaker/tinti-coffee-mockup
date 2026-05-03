@@ -38,7 +38,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <span className="font-typewriter text-xs uppercase tracking-widest block mb-1" style={{ color: '#C49A3A' }}>{c.locationLabel}</span>
-                  <p className="font-medium" style={{ color: '#2F4F3A' }}>Pitalito, Huila</p>
+                  <p className="font-medium" style={{ color: '#2F4F3A' }}>Neiva, Huila</p>
                   <p className="text-sm font-light" style={{ color: '#2F4F3A', opacity: 0.6 }}>{c.locationSub}</p>
                 </div>
               </div>
@@ -52,7 +52,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <span className="font-typewriter text-xs uppercase tracking-widest block mb-1" style={{ color: '#C49A3A' }}>{c.emailLabel}</span>
-                  <p className="font-medium" style={{ color: '#2F4F3A' }}>hola@cafehuila.co</p>
+                  <p className="font-medium" style={{ color: '#2F4F3A' }}>info@tinticoffee.com</p>
                   <p className="text-sm font-light" style={{ color: '#2F4F3A', opacity: 0.6 }}>{c.emailSub}</p>
                 </div>
               </div>
@@ -67,7 +67,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <span className="font-typewriter text-xs uppercase tracking-widest block mb-1" style={{ color: '#C49A3A' }}>{c.igLabel}</span>
-                  <p className="font-medium" style={{ color: '#2F4F3A' }}>@cafehuila.co</p>
+                  <p className="font-medium" style={{ color: '#2F4F3A' }}>@tinti_coffee_company</p>
                   <p className="text-sm font-light" style={{ color: '#2F4F3A', opacity: 0.6 }}>{c.igSub}</p>
                 </div>
               </div>

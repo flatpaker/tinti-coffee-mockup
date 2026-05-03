@@ -26,7 +26,7 @@ export function Footer() {
               <span className="font-heading text-xl tracking-wider" style={{ color: '#F5E9D7' }}>Café Huila</span>
             </div>
             <p className="font-typewriter text-xs uppercase tracking-widest mb-2" style={{ color: '#C49A3A' }}>
-              Pitalito, Huila — Colombia
+              Neiva, Huila — Colombia
             </p>
             <p className="text-sm font-light leading-relaxed" style={{ color: '#F5E9D7', opacity: 0.5 }}>
               {f.tagline}
@@ -53,27 +53,27 @@ export function Footer() {
           <div>
             <span className="font-typewriter text-xs uppercase tracking-widest block mb-5" style={{ color: '#C49A3A' }}>{f.connectLabel}</span>
             <div className="space-y-3">
-              <a href="mailto:hola@cafehuila.co" className="flex items-center gap-3 text-sm font-light transition-opacity hover:opacity-100" style={{ color: '#F5E9D7', opacity: 0.5 }}>
+              <a href="mailto:info@tinticoffee.com" className="flex items-center gap-3 text-sm font-light transition-opacity hover:opacity-100" style={{ color: '#F5E9D7', opacity: 0.5 }}>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                   <polyline points="22,6 12,13 2,6"/>
                 </svg>
-                hola@cafehuila.co
+                info@tinticoffee.com
               </a>
-              <a href="https://instagram.com/cafehuila.co" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm font-light transition-opacity hover:opacity-100" style={{ color: '#F5E9D7', opacity: 0.5 }} data-testid="footer-link-instagram">
+              <a href="https://instagram.com/tinti_coffee_company" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm font-light transition-opacity hover:opacity-100" style={{ color: '#F5E9D7', opacity: 0.5 }} data-testid="footer-link-instagram">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                   <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
                 </svg>
-                @cafehuila.co
+                @tinti_coffee_company
               </a>
               <div className="flex items-center gap-3 text-sm font-light" style={{ color: '#F5E9D7', opacity: 0.5 }}>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
                   <circle cx="12" cy="9" r="2.5"/>
                 </svg>
-                Pitalito, Huila, Colombia
+                Neiva, Huila, Colombia
               </div>
             </div>
           </div>
