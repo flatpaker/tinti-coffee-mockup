@@ -245,6 +245,41 @@
   font-family: var(--font-accent);
 }
 
+/* Shine sweep effect for product cards */
+.shine-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.35) 45%, rgba(255,255,255,0.2) 50%, transparent 55%);
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.group:hover .shine-card::after {
+  animation: shine-sweep 0.8s ease-in-out forwards;
+}
+
+@keyframes shine-sweep {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
 @layer utilities {
   input[type="search"]::-webkit-search-cancel-button {
     @apply hidden;

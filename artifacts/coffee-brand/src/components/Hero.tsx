@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useLang } from '@/context/LanguageContext';
+import { MagneticButton } from '@/components/MagneticButton';
 
 export function Hero() {
   const { scrollY } = useScroll();
@@ -77,12 +78,13 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <button
+          <MagneticButton
             className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-10 py-4 rounded-full font-sans text-lg font-semibold tracking-wide transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+            strength={0.3}
             data-testid="button-hero-cta"
           >
             {t.hero.cta}
-          </button>
+          </MagneticButton>
         </motion.div>
       </div>
 

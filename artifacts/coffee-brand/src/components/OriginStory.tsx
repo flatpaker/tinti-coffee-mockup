@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useLang } from '@/context/LanguageContext';
+import { AnimatedCounter } from '@/components/AnimatedCounter';
 
 export function OriginStory() {
   const { t } = useLang();
@@ -25,7 +26,9 @@ export function OriginStory() {
               <div className="relative z-10 flex justify-end">
                 <div className="w-24 h-24 rounded-full bg-white border border-primary/20 flex flex-col items-center justify-center shadow-sm">
                   <span className="font-typewriter text-[10px] text-primary/60 uppercase tracking-widest mb-1">{o.altLabel}</span>
-                  <span className="font-heading text-xl text-primary leading-none">1,700</span>
+                  <span className="font-heading text-xl text-primary leading-none">
+                    <AnimatedCounter value={1700} />
+                  </span>
                   <span className="font-typewriter text-[10px] text-primary/60 uppercase tracking-widest mt-1">{o.altUnit}</span>
                 </div>
               </div>

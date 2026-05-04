@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { useLang } from '@/context/LanguageContext';
+import { ShineCard } from '@/components/ShineCard';
+import { MagneticButton } from '@/components/MagneticButton';
 
 const prices = ['$24.00', '$28.00', '$22.00', '$34.00'];
 const images = ['/bag-1.png', '/bag-2.png', '/bag-3.png', '/bag-4.png'];
@@ -60,33 +62,35 @@ export function ProductShowcase() {
               variants={itemVariants}
               data-testid={`card-product-${idx + 1}`}
             >
-              <div className="aspect-[3/4] relative p-8 flex items-center justify-center bg-white/50">
-                <span className="absolute top-4 left-4 font-typewriter text-[10px] uppercase tracking-widest text-primary/70 bg-white/80 px-2 py-1 rounded backdrop-blur-sm">
-                  {product.type}
-                </span>
-                <img
-                  src={images[idx]}
-                  alt={product.name}
-                  className="w-full h-full object-contain mix-blend-multiply drop-shadow-md group-hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-
-              <div className="p-6 flex flex-col flex-grow bg-white">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="font-heading text-lg text-primary leading-tight">{product.name}</h3>
-                  <span className="font-sans font-medium text-foreground">{prices[idx]}</span>
+              <ShineCard className="flex flex-col h-full">
+                <div className="aspect-[3/4] relative p-8 flex items-center justify-center bg-white/50">
+                  <span className="absolute top-4 left-4 font-typewriter text-[10px] uppercase tracking-widest text-primary/70 bg-white/80 px-2 py-1 rounded backdrop-blur-sm">
+                    {product.type}
+                  </span>
+                  <img
+                    src={images[idx]}
+                    alt={product.name}
+                    className="w-full h-full object-contain mix-blend-multiply drop-shadow-md group-hover:scale-105 transition-transform duration-700"
+                  />
                 </div>
 
-                <p className="font-typewriter text-xs text-primary/60 mb-4">{product.roast}</p>
-                <p className="text-sm text-foreground/70 mb-6 flex-grow">{product.notes}</p>
+                <div className="p-6 flex flex-col flex-grow bg-white">
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="font-heading text-lg text-primary leading-tight">{product.name}</h3>
+                    <span className="font-sans font-medium text-foreground">{prices[idx]}</span>
+                  </div>
 
-                <button
-                  className="w-full py-3 rounded-full border border-primary text-primary font-medium text-sm hover:bg-secondary hover:border-secondary hover:text-secondary-foreground transition-colors"
-                  data-testid={`button-add-to-bag-${idx + 1}`}
-                >
-                  {p.addToBag}
-                </button>
-              </div>
+                  <p className="font-typewriter text-xs text-primary/60 mb-4">{product.roast}</p>
+                  <p className="text-sm text-foreground/70 mb-6 flex-grow">{product.notes}</p>
+
+                  <MagneticButton
+                    className="w-full py-3 rounded-full border border-primary text-primary font-medium text-sm hover:bg-secondary hover:border-secondary hover:text-secondary-foreground transition-colors"
+                    data-testid={`button-add-to-bag-${idx + 1}`}
+                  >
+                    {p.addToBag}
+                  </MagneticButton>
+                </div>
+              </ShineCard>
             </motion.div>
           ))}
         </motion.div>
